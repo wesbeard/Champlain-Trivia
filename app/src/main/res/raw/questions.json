@@ -15,6 +15,36 @@
             "image": "willard-maple.png"
           },
           {
+            "prompt": "Which of these is Valcour Hall?",
+            "answers": {
+              "correct": "valcour.png",
+              "incorrect1": "juniper.png",
+              "incorrect2": "butler.png",
+              "incorrect3": "Adirondack.png"
+            },
+            "image": ""
+          },
+          {
+            "prompt": "Which building is Champlain College's admissions building?",
+            "answers": {
+              "correct": "Perry Hall",
+              "incorrect1": "Skiff Hall",
+              "incorrect2": "West Hall",
+              "incorrect3": "Foster Hall"
+            },
+            "image": "admissionsSign.png"
+          },
+          {
+            "prompt": "What street is located just to the East of the library?",
+            "answers": {
+              "correct": "Summit Street",
+              "incorrect1": "South Willard Street",
+              "incorrect2": "Main Street",
+              "incorrect3": "Maple Street"
+            },
+            "image": "MIC.png"
+          },
+          {
             "prompt": "",
             "answers": {
               "correct": "",
@@ -31,7 +61,60 @@
       "general": {}
     },
     {
-      "burlington": {}
+      "burlington": {
+        "questions": [
+          {
+            "prompt": "What is the name of this Burlington pedestrian street that has a market place containing businesses like Starbucks and Pascolo Ristorante?",
+            "answers": {
+              "correct": "Church Street",
+              "incorrect1": "Pine Street",
+              "incorrect2": "Battery Street",
+              "incorrect3": "Champlain Street"
+            },
+            "image": "churchStreet.png"
+          },
+          {
+            "prompt": "Which of these restaurants do not serve breakfast foods?",
+            "answers": {
+              "correct": "Sweetwaters",
+              "incorrect1": "Henry's Diner",
+              "incorrect2": "The Friendly Toast",
+              "incorrect3": "The Skinny Pancake"
+            },
+            "image": "pancake.png"
+          },
+          {
+            "prompt": "Which of these images are not located in Burlington?",
+            "answers": {
+              "correct": "shelburne rd image (in south burlington",
+              "incorrect1": "dogpark.png",
+              "incorrect2": "uvm campus",
+              "incorrect3": "burlington country club?"
+            },
+            "image": "NA.png"
+          },
+          {
+            "prompt": "Which of these Burlington facts are false?",
+            "answers": {
+              "correct": "Largest city in Vermont by area",
+              "incorrect1": "Contains the world's tallest filing cabinet",
+              "incorrect2": "Is the smallest largest city in a US state",
+              "incorrect3": "Has the smallest tallest building in a US state"
+            },
+            "image": "filingCabinet.png"
+          },
+          {
+            "prompt": "Which of these is Burlington's City Hall?",
+            "answers": {
+              "correct": "burlingtonCityHall.png",
+              "incorrect1": "MontpelierCityHall.png",
+              "incorrect2": "StoweCityHall.png",
+              "incorrect3": "RutlandCityHall.png"
+            },
+            "image": "NA.png"
+          }
+        ]
+      }
     }
   ]
 }
