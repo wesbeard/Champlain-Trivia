@@ -29,44 +29,44 @@
         android:foregroundGravity="bottom">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/answer1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:foregroundGravity="bottom"
-            android:text="RadioButton" />
+            android:text="Answer 1" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/answer2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:foregroundGravity="bottom"
-            android:text="RadioButton" />
+            android:text="Answer 2" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/answer3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:foregroundGravity="bottom"
-            android:text="RadioButton" />
+            android:text="Answer 3" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/answer4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:foregroundGravity="bottom"
-            android:text="RadioButton" />
+            android:text="Answer 4" />
     </RadioGroup>
 
     <LinearLayout
