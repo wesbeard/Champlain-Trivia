@@ -20,10 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingLeft="50dp"
-        android:paddingTop="50dp"
-        android:paddingRight="50dp"
-        android:paddingBottom="50dp"
+        android:padding="20dp"
         android:text="@string/menu_prompt"
         android:textSize="24sp" />
 
@@ -38,15 +35,14 @@
             <ImageButton
                 android:id="@+id/general_category"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:background="#00FFFFFF"
                 android:contentDescription="@string/general_category"
-                android:padding="10dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/motto"
+                android:src="@drawable/general"
                 tools:visibility="visible" />
         </TableRow>
 
@@ -57,15 +53,14 @@
             <ImageButton
                 android:id="@+id/buildings_category"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:background="#00FFFFFF"
                 android:contentDescription="@string/building_category"
-                android:padding="10dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/motto" />
+                android:src="@drawable/buildings" />
         </TableRow>
 
         <TableRow
@@ -75,15 +70,14 @@
             <ImageButton
                 android:id="@+id/burlington_category"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:background="#00FFFFFF"
                 android:contentDescription="@string/burlington_category"
-                android:padding="10dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/motto" />
+                android:src="@drawable/burlington" />
         </TableRow>
 
     </TableLayout>

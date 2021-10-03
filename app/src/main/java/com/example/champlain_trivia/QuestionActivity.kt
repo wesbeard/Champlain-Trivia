@@ -16,7 +16,7 @@ class QuestionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
 
-        val intent = getIntent()
+        val intent = intent
         val category = intent.getStringExtra("category").toString()
 
         val stream = resources.openRawResource(R.raw.questions)
