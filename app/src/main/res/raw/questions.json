@@ -1,0 +1,37 @@
+{
+  "generator-link": "http://www.objgen.com/json/models/3Gf7",
+  "categories": [
+    {
+      "buildings": {
+        "questions": [
+          {
+            "prompt": "Which residential hall is NOT located on the intersection of Willard & Maple?",
+            "answers": {
+              "correct": "Lyman",
+              "incorrect1": "Bader",
+              "incorrect2": "McDonald",
+              "incorrect3": "Hill"
+            },
+            "image": "willard-maple.png"
+          },
+          {
+            "prompt": "",
+            "answers": {
+              "correct": "",
+              "incorrect1": "",
+              "incorrect2": "",
+              "incorrect3": ""
+            },
+            "image": ""
+          }
+        ]
+      }
+    },
+    {
+      "general": {}
+    },
+    {
+      "burlington": {}
+    }
+  ]
+}
