@@ -2,6 +2,9 @@
     <string name="app_name">Champlain College Trivia</string>
     <string name="menu_prompt">What kind of trivia do you want to play?</string>
     <string name="general_category">General Trivia</string>
-    <string name="building_category">Name That Building</string>
-    <string name="burlington_category">Burlington Knowledge</string>
+    <string name="building_category">Building Trivia</string>
+    <string name="burlington_category">Burlington Trivia</string>
+    <string name="submit">Submit</string>
+    <string name="hint">Give me a hint!</string>
+    <string name="high_scores">High Scores</string>
 </resources>

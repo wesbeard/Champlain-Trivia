@@ -20,13 +20,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="20dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
         android:text="@string/menu_prompt"
         android:textSize="24sp" />
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -36,9 +37,9 @@
                 android:id="@+id/general_category"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#00FFFFFF"
                 android:contentDescription="@string/general_category"
                 android:scaleType="centerInside"
@@ -54,9 +55,9 @@
                 android:id="@+id/buildings_category"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#00FFFFFF"
                 android:contentDescription="@string/building_category"
                 android:scaleType="centerInside"
@@ -71,15 +72,26 @@
                 android:id="@+id/burlington_category"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#00FFFFFF"
                 android:contentDescription="@string/burlington_category"
                 android:scaleType="centerInside"
                 android:src="@drawable/burlington" />
+
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:text="@string/high_scores"
+        app:icon="@drawable/trophy"
+        app:iconSize="20dp" />
 
 </LinearLayout>
