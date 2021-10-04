@@ -98,7 +98,7 @@
             android:foregroundGravity="bottom"
             android:text="@string/submit"
             app:backgroundTint="@color/champlain_green"
-            app:icon="@drawable/chevron"
+            app:icon="@drawable/chevron_right"
             app:iconGravity="textEnd"
             app:iconSize="20dp" />
     </LinearLayout>
