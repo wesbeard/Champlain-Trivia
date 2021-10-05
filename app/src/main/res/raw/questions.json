@@ -45,12 +45,12 @@
             "image": "MIC.png"
           },
           {
-            "prompt": "",
+            "prompt": "Which first year residence hall is the furthest from the main campus?",
             "answers": {
-              "correct": "",
-              "incorrect1": "",
-              "incorrect2": "",
-              "incorrect3": ""
+              "correct": "North House",
+              "incorrect1": "South House",
+              "incorrect2": "Sanders Hall",
+              "incorrect3": "194 St. Paul St."
             },
             "image": ""
           }
