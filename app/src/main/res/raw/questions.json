@@ -1,16 +1,16 @@
 {
-  "generator-link": "http://www.objgen.com/json/models/3Gf7",
-  "categories": [
-    {
+  "categories": {
       "buildings": {
         "questions": [
           {
             "prompt": "Which residential hall is NOT located on the intersection of Willard & Maple?",
             "answers": {
               "correct": "Lyman",
-              "incorrect1": "Bader",
-              "incorrect2": "McDonald",
-              "incorrect3": "Hill"
+              "incorrect": [
+                "Bader",
+                "McDonald",
+                "Hill"
+              ]
             },
             "image": "willard-maple.png"
           },
@@ -18,9 +18,11 @@
             "prompt": "Which of these is Valcour Hall?",
             "answers": {
               "correct": "valcour.png",
-              "incorrect1": "juniper.png",
-              "incorrect2": "butler.png",
-              "incorrect3": "Adirondack.png"
+              "incorrect": [
+                "juniper.png",
+                "butler.png",
+                "Adirondack.png"
+              ]
             },
             "image": ""
           },
@@ -28,9 +30,11 @@
             "prompt": "Which building is Champlain College's admissions building?",
             "answers": {
               "correct": "Perry Hall",
-              "incorrect1": "Skiff Hall",
-              "incorrect2": "West Hall",
-              "incorrect3": "Foster Hall"
+              "incorrect": [
+                "Skiff Hall",
+                "West Hall",
+                "Foster Hall"
+              ]
             },
             "image": "admissionsSign.png"
           },
@@ -38,9 +42,11 @@
             "prompt": "What street is located just to the East of the library?",
             "answers": {
               "correct": "Summit Street",
-              "incorrect1": "South Willard Street",
-              "incorrect2": "Main Street",
-              "incorrect3": "Maple Street"
+              "incorrect": [
+                "South Willard Street",
+                "Main Street",
+                "Maple Street"
+              ]
             },
             "image": "MIC.png"
           },
@@ -48,25 +54,27 @@
             "prompt": "Which first year residence hall is the furthest from the main campus?",
             "answers": {
               "correct": "North House",
-              "incorrect1": "South House",
-              "incorrect2": "Sanders Hall",
-              "incorrect3": "194 St. Paul St."
+              "incorrect": [
+                "South House",
+                "Sanders Hall",
+                "194 St. Paul St."
+              ]
             },
             "image": ""
           }
         ]
-      }
-    },
-    {
+      },
       "general": {
         "questions": [
           {
             "prompt": "When was Champlain College founded?",
             "answers": {
               "correct": "1878",
-              "incorrect1": "1787",
-              "incorrect2": "1882",
-              "incorrect3": "1928"
+              "incorrect": [
+                "1787",
+                "1882",
+                "1928"
+              ]
             },
             "image": "champlain.png"
           },
@@ -74,19 +82,23 @@
             "prompt": "What's the name of Champlain's beaver mascot?",
             "answers": {
               "correct": "Chauncey",
-              "incorrect1": "Willard",
-              "incorrect2": "William",
-              "incorrect3": "Donald"
+              "incorrect": [
+                "Willard",
+                "William",
+                "Donald"
+              ]
             },
             "image": "chauncey.png"
           },
           {
-            "prompt": "What is Champlain's motto (Let Us Dare) in latin?",
+            "prompt": "What is Champlain's latin motto?",
             "answers": {
               "correct": "Audeamus",
-              "incorrect1": "Sic Semper Tyrannis",
-              "incorrect2": "Veni Vidi Vici",
-              "incorrect3": "Capre Deum"
+              "incorrect": [
+                "Sic Semper Tyrannis",
+                "Veni Vidi Vici",
+                "Capre Deum"
+              ]
             },
             "image": "seal.png"
           },
@@ -94,35 +106,39 @@
             "prompt": "What is the name of the student life center?",
             "answers": {
               "correct": "IDX",
-              "incorrect1": "CCM",
-              "incorrect2": "EMC",
-              "incorrect3": "MIC"
+              "incorrect": [
+                "CCM",
+                "EMC",
+                "MIC"
+              ]
             },
             "image": "idx.png"
           },
           {
-            "prompt": "Which one of these presidents is David Finney?",
+            "prompt": "Which one of these Champlain presidents is David Finney?",
             "answers": {
               "correct": "finney.png",
-              "incorrect1": "akande.png",
-              "incorrect2": "laackman.png",
-              "incorrect3": "thompson.png"
+              "incorrect": [
+                "akande.png",
+                "laackman.png",
+                "thompson.png"
+              ]
             },
             "image": "president.png"
           }
         ]
       },
-    },
-    {
       "burlington": {
         "questions": [
           {
             "prompt": "What is the name of this Burlington pedestrian street that has a market place containing businesses like Starbucks and Pascolo Ristorante?",
             "answers": {
               "correct": "Church Street",
-              "incorrect1": "Pine Street",
-              "incorrect2": "Battery Street",
-              "incorrect3": "Champlain Street"
+              "incorrect": [
+                "Pine Street",
+                "Battery Street",
+                "Champlain Street"
+              ]
             },
             "image": "churchStreet.png"
           },
@@ -130,9 +146,12 @@
             "prompt": "Which of these restaurants does not serve breakfast foods?",
             "answers": {
               "correct": "Sweetwaters",
-              "incorrect1": "Henry's Diner",
-              "incorrect2": "The Friendly Toast",
-              "incorrect3": "The Skinny Pancake"
+              "incorrect": [
+                "Henry's Diner",
+                "The Friendly Toast",
+                "The Skinny Pancake"
+              ]
+
             },
             "image": "pancake.png"
           },
@@ -140,9 +159,11 @@
             "prompt": "Which of these images are not located in Burlington?",
             "answers": {
               "correct": "shelburne rd image (in south burlington",
-              "incorrect1": "dogpark.png",
-              "incorrect2": "uvm campus",
-              "incorrect3": "burlington country club?"
+              "incorrect": [
+                "dogpark.png",
+                "uvm campus",
+                "burlington country club?"
+              ]
             },
             "image": "NA.png"
           },
@@ -150,9 +171,11 @@
             "prompt": "Which of these Burlington facts are false?",
             "answers": {
               "correct": "Largest city in Vermont by area",
-              "incorrect1": "Contains the world's tallest filing cabinet",
-              "incorrect2": "Is the smallest largest city in a US state",
-              "incorrect3": "Has the smallest tallest building in a US state"
+              "incorrect": [
+                "Contains the world's tallest filing cabinet",
+                "Is the smallest largest city in a US state",
+                "Has the smallest tallest building in a US state"
+              ]
             },
             "image": "filingCabinet.png"
           },
@@ -160,14 +183,15 @@
             "prompt": "Which of these is Burlington's City Hall?",
             "answers": {
               "correct": "BurlingtonCityHall.png",
-              "incorrect1": "MontpelierCityHall.png",
-              "incorrect2": "StoweCityHall.png",
-              "incorrect3": "RutlandCityHall.png"
+              "incorrect": [
+                "MontpelierCityHall.png",
+                "StoweCityHall.png",
+                "RutlandCityHall.png"
+              ]
             },
             "image": "NA.png"
           }
         ]
       }
-    }
-  ]
+  }
 }

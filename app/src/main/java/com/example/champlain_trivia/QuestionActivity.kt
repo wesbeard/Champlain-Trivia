@@ -8,6 +8,9 @@ import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+
 
 class QuestionActivity : AppCompatActivity() {
 
@@ -30,8 +33,9 @@ class QuestionActivity : AppCompatActivity() {
         val intent = intent
         val category = intent.getStringExtra("category").toString()
         val stream = resources.openRawResource(R.raw.questions)
-        val questions = stream.bufferedReader().readText()
-
+        val rawQuestions = stream.bufferedReader().readText()
+        val gson = Gson()
+        val deserializedQuestions = gson.fromJson(rawQuestions, Root::class.java)
 
         promptText = findViewById(R.id.question_prompt)
         promptText
@@ -52,7 +56,7 @@ class QuestionActivity : AppCompatActivity() {
         incorrect2 = findViewById(R.id.answer3)
         incorrect3 = findViewById(R.id.answer4)
 
-        promptText.text = " > question goes here <"
+        promptText.text = deserializedQuestions.categories.general.questions[0].prompt
     }
 
     companion object {
