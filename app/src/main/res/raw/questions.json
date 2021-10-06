@@ -58,7 +58,60 @@
       }
     },
     {
-      "general": {}
+      "general": {
+        "questions": [
+          {
+            "prompt": "When was Champlain College founded?",
+            "answers": {
+              "correct": "1878",
+              "incorrect1": "1787",
+              "incorrect2": "1882",
+              "incorrect3": "1928"
+            },
+            "image": "champlain.png"
+          },
+          {
+            "prompt": "What's the name of Champlain's beaver mascot?",
+            "answers": {
+              "correct": "Chauncey",
+              "incorrect1": "Willard",
+              "incorrect2": "William",
+              "incorrect3": "Donald"
+            },
+            "image": "chauncey.png"
+          },
+          {
+            "prompt": "What is Champlain's latin motto?",
+            "answers": {
+              "correct": "Audeamus",
+              "incorrect1": "Sic Semper Tyrannis",
+              "incorrect2": "Veni Vidi Vici",
+              "incorrect3": "Capre Deum"
+            },
+            "image": "seal.png"
+          },
+          {
+            "prompt": "What is the name of the student life center?",
+            "answers": {
+              "correct": "IDX",
+              "incorrect1": "CCM",
+              "incorrect2": "EMC",
+              "incorrect3": "MIC"
+            },
+            "image": "idx.png"
+          },
+          {
+            "prompt": "Which one of these presidents is David Finney?",
+            "answers": {
+              "correct": "finney.png",
+              "incorrect1": "akande.png",
+              "incorrect2": "laackman.png",
+              "incorrect3": "thompson.png"
+            },
+            "image": "president.png"
+          }
+        ]
+      },
     },
     {
       "burlington": {
@@ -74,7 +127,7 @@
             "image": "churchStreet.png"
           },
           {
-            "prompt": "Which of these restaurants do not serve breakfast foods?",
+            "prompt": "Which of these restaurants does not serve breakfast foods?",
             "answers": {
               "correct": "Sweetwaters",
               "incorrect1": "Henry's Diner",
@@ -106,7 +159,7 @@
           {
             "prompt": "Which of these is Burlington's City Hall?",
             "answers": {
-              "correct": "burlingtonCityHall.png",
+              "correct": "BurlingtonCityHall.png",
               "incorrect1": "MontpelierCityHall.png",
               "incorrect2": "StoweCityHall.png",
               "incorrect3": "RutlandCityHall.png"
