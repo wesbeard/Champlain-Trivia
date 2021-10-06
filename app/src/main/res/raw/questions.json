@@ -81,7 +81,7 @@
             "image": "chauncey.png"
           },
           {
-            "prompt": "What is Champlain's latin motto?",
+            "prompt": "What is Champlain's motto (Let Us Dare) in latin?",
             "answers": {
               "correct": "Audeamus",
               "incorrect1": "Sic Semper Tyrannis",
