@@ -34,7 +34,6 @@ class QuestionActivity : AppCompatActivity() {
 
 
         promptText = findViewById(R.id.question_prompt)
-        promptText
         promptImage = findViewById(R.id.question_image)
 
         submitButton = findViewById(R.id.submit)
