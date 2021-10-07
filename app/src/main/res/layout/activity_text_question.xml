@@ -23,10 +23,12 @@
         android:textSize="20sp" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:foregroundGravity="bottom">
+        android:foregroundGravity="bottom"
+        android:minHeight="200dp">
 
         <RadioButton
             android:id="@+id/answer1"

@@ -3,31 +3,39 @@ package com.example.champlain_trivia
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import android.util.Log
 import androidx.core.view.isVisible
 import kotlin.random.Random
 
 
 class QuestionActivity : AppCompatActivity() {
 
+    // Text Question Views
     private lateinit var promptText: TextView
     private lateinit var promptImage: ImageView
     private lateinit var submitButton: Button
     private lateinit var hintButton: Button
+    private lateinit var radioGroup: RadioGroup
     private lateinit var correctAnswer: RadioButton
     private lateinit var incorrect1: RadioButton
     private lateinit var incorrect2: RadioButton
     private lateinit var incorrect3: RadioButton
 
+    // Game Over Views
+    private lateinit var scoreDisplay: TextView
+    private lateinit var scoreMessage: TextView
+    private lateinit var backToMenuButton: Button
+    private lateinit var replayButton: Button
+
+    // Game Logic Vars
+    private lateinit var selectedAnswer: RadioButton
     private var questionNumber = 1
+    private val TOTAL_QUESTIONS = 5
     private lateinit var questionSet: List<Question>
+    private var score = 0
+    private var hintUsed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +60,8 @@ class QuestionActivity : AppCompatActivity() {
         hintButton.setOnClickListener {
             getHint()
         }
+
+        radioGroup = findViewById(R.id.radioGroup)
 
         questionSet = when (category) {
             "general" -> deserializedQuestions.categories.general.questions
@@ -88,38 +98,62 @@ class QuestionActivity : AppCompatActivity() {
         incorrect1.text = questionSet[questionNumber - 1].answers.incorrect[0]
         incorrect2.text = questionSet[questionNumber - 1].answers.incorrect[1]
         incorrect3.text = questionSet[questionNumber - 1].answers.incorrect[2]
-
-        // make sure radio buttons are unselected
-        if (correctAnswer.isChecked) {
-            correctAnswer.isChecked = false
-        }
-        if (incorrect1.isChecked) {
-            incorrect1.isChecked = false
-        }
-        if (incorrect2.isChecked) {
-            incorrect2.isChecked = false
-        }
-        if (incorrect3.isChecked) {
-            incorrect3.isChecked = false
-        }
     }
 
     private fun nextQuestion() {
+        // make sure an answer is selected, if not then don't go to the next question
+        if (radioGroup.checkedRadioButtonId == -1)
+        {
+            Toast.makeText(applicationContext, "Please select an answer", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // if currently selected answer is the correct answer then increment score
+        selectedAnswer = findViewById(radioGroup.checkedRadioButtonId)
+        if (selectedAnswer == correctAnswer) {
+            score++
+        }
+
+        // clear checked buttons for next question
+        radioGroup.clearCheck()
+
+        // increment question #, if last question go to game over screen
         questionNumber++
-        title = "Question $questionNumber"
-        setQuestion()
+        if (questionNumber >= TOTAL_QUESTIONS) {
+            gameOver()
+        }
+        else {
+
+            title = "Question $questionNumber"
+            setQuestion()
+
+            // show all answers if hint has been used
+            if (hintUsed) {
+                incorrect1.isVisible = true
+                incorrect2.isVisible = true
+                incorrect3.isVisible = true
+            }
+        }
     }
 
     private fun getHint() {
-        val rg = R.id.radio
-        val randNum = Random.nextInt(0,3)
-        when (randNum) {
-            0 -> incorrect1.isVisible = false
-            1 -> incorrect2.isVisible = false
-            2 -> incorrect3.isVisible = false
+        // You get one hint per round so we just need to reset this whenever we go back to home
+        if (!hintUsed) {
+            val rg = R.id.radio
+            when (Random.nextInt(0, 3)) {
+                0 -> incorrect1.isVisible = false
+                1 -> incorrect2.isVisible = false
+                2 -> incorrect3.isVisible = false
+            }
+            hintUsed = true
+            hintButton.setBackgroundColor(resources.getColor(R.color.disabled))
+            hintButton.isClickable = false
         }
-        // need to adjust this so it only removes one and then also they need to be added back later
-        // maybe use radio group earlier so it is easier to check which one is checked for reset purposes
-        // then it could also be used for removing I think
+    }
+
+    private fun gameOver() {
+        setContentView(R.layout.activity_finish)
+        scoreDisplay = findViewById(R.id.scoreDisplay)
+        scoreDisplay.text = "$score/$TOTAL_QUESTIONS"
     }
 }
