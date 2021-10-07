@@ -9,8 +9,6 @@ import android.widget.RadioButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-
 
 class QuestionActivity : AppCompatActivity() {
 
@@ -24,6 +22,7 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var incorrect3: RadioButton
 
     private var questionNumber = 1
+    private lateinit var questionSet: List<Question>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +55,16 @@ class QuestionActivity : AppCompatActivity() {
         incorrect2 = findViewById(R.id.answer3)
         incorrect3 = findViewById(R.id.answer4)
 
-        promptText.text = deserializedQuestions.categories.general.questions[0].prompt
+        questionSet = when (category) {
+            "general" -> deserializedQuestions.categories.general.questions
+            "buildings" -> deserializedQuestions.categories.buildings.questions
+            "burlington" -> deserializedQuestions.categories.burlington.questions
+            else -> deserializedQuestions.categories.general.questions
+        }
+
+        questionSet = questionSet.shuffled()
+
+        promptText.text = questionSet[0].prompt
     }
 
     companion object {
