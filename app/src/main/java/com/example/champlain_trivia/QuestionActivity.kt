@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import android.util.Log
+import androidx.core.view.isVisible
+import kotlin.random.Random
 
 
 class QuestionActivity : AppCompatActivity() {
@@ -25,6 +27,7 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var incorrect3: RadioButton
 
     private var questionNumber = 1
+    private lateinit var questionSet: List<Question>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,13 +53,16 @@ class QuestionActivity : AppCompatActivity() {
             getHint()
         }
 
-        // * These need to be dynamic *
-        correctAnswer = findViewById(R.id.answer1)
-        incorrect1 = findViewById(R.id.answer2)
-        incorrect2 = findViewById(R.id.answer3)
-        incorrect3 = findViewById(R.id.answer4)
+        questionSet = when (category) {
+            "general" -> deserializedQuestions.categories.general.questions
+            "buildings" -> deserializedQuestions.categories.buildings.questions
+            "burlington" -> deserializedQuestions.categories.burlington.questions
+            else -> deserializedQuestions.categories.general.questions
+        }
 
-        promptText.text = deserializedQuestions.categories.general.questions[0].prompt
+        questionSet = questionSet.shuffled()
+        // call function to generate initial question
+        setQuestion()
     }
 
     companion object {
@@ -65,12 +71,55 @@ class QuestionActivity : AppCompatActivity() {
         }
     }
 
+    private fun setQuestion() {
+        // randomize answer locations
+        var answerList = listOf<RadioButton>(findViewById(R.id.answer1), findViewById(R.id.answer2), findViewById(R.id.answer3), findViewById(R.id.answer4))
+        answerList = answerList.shuffled()
+        correctAnswer = answerList[0]
+        incorrect1 = answerList[1]
+        incorrect2 = answerList[2]
+        incorrect3 = answerList[3]
+
+        // set question prompt
+        promptText.text = questionSet[questionNumber - 1].prompt
+
+        // set question answers
+        correctAnswer.text = questionSet[questionNumber - 1].answers.correct
+        incorrect1.text = questionSet[questionNumber - 1].answers.incorrect[0]
+        incorrect2.text = questionSet[questionNumber - 1].answers.incorrect[1]
+        incorrect3.text = questionSet[questionNumber - 1].answers.incorrect[2]
+
+        // make sure radio buttons are unselected
+        if (correctAnswer.isChecked) {
+            correctAnswer.isChecked = false
+        }
+        if (incorrect1.isChecked) {
+            incorrect1.isChecked = false
+        }
+        if (incorrect2.isChecked) {
+            incorrect2.isChecked = false
+        }
+        if (incorrect3.isChecked) {
+            incorrect3.isChecked = false
+        }
+    }
+
     private fun nextQuestion() {
         questionNumber++
-
+        title = "Question $questionNumber"
+        setQuestion()
     }
 
     private fun getHint() {
-
+        val rg = R.id.radio
+        val randNum = Random.nextInt(0,3)
+        when (randNum) {
+            0 -> incorrect1.isVisible = false
+            1 -> incorrect2.isVisible = false
+            2 -> incorrect3.isVisible = false
+        }
+        // need to adjust this so it only removes one and then also they need to be added back later
+        // maybe use radio group earlier so it is easier to check which one is checked for reset purposes
+        // then it could also be used for removing I think
     }
 }

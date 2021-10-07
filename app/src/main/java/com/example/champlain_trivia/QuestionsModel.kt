@@ -13,18 +13,18 @@ data class Categories(
 )
 
 data class General(
-    @SerializedName("questions") var questions: List<Questions>
+    @SerializedName("questions") var questions: List<Question>
 )
 
 data class Buildings(
-    @SerializedName("questions") var questions: List<Questions>
+    @SerializedName("questions") var questions: List<Question>
 )
 
 data class Burlington(
-    @SerializedName("questions") var questions: List<Questions>
+    @SerializedName("questions") var questions: List<Question>
 )
 
-data class Questions(
+data class Question(
     @SerializedName("prompt") var prompt: String,
     @SerializedName("image") var image: String,
     @SerializedName("answers") var answers: Answers
