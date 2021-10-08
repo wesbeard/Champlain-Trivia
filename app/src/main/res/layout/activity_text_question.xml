@@ -14,7 +14,7 @@
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal|center_vertical"
         android:minHeight="100dp"
-        android:text="Question Text"
+        android:text="@string/prompt_placeholder"
         android:textSize="20sp" />
 
     <RadioGroup
@@ -33,7 +33,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:foregroundGravity="bottom"
-            android:text="Answer 1" />
+            android:text="@string/answer_placeholder" />
 
         <RadioButton
             android:id="@+id/answer2"
@@ -43,7 +43,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:foregroundGravity="bottom"
-            android:text="Answer 2" />
+            android:text="@string/answer_placeholder" />
 
         <RadioButton
             android:id="@+id/answer3"
@@ -53,7 +53,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:foregroundGravity="bottom"
-            android:text="Answer 3" />
+            android:text="@string/answer_placeholder" />
 
         <RadioButton
             android:id="@+id/answer4"
@@ -63,12 +63,12 @@
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:foregroundGravity="bottom"
-            android:text="Answer 4" />
+            android:text="@string/answer_placeholder" />
     </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="200dp"
         android:gravity="center"
         android:orientation="horizontal">
 

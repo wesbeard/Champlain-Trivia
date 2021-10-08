@@ -8,14 +8,14 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="50dp" />
 
     <TextView
         android:id="@+id/scoreDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="10/10"
+        android:text="#/#"
         android:textSize="70sp" />
 
     <Space
@@ -27,12 +27,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Well Done!"
+        android:text="Game Over!"
         android:textSize="30sp" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="50dp" />
+
+    <EditText
+        android:id="@+id/name_entry"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:autoText="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/save_score"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/save_score"
+        app:iconTint="#FFFFFF"
+        app:iconTintMode="multiply" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,9 +64,9 @@
 
         <Button
             android:id="@+id/back_to_menu"
-            android:layout_width="50dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/back_to_menu"
             app:icon="@drawable/chevron_left"
@@ -53,11 +76,12 @@
             android:id="@+id/replay"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/play_again"
             app:backgroundTint="@color/champlain_green"
             app:icon="@drawable/replay"
             app:iconSize="20dp" />
     </LinearLayout>
+
 </LinearLayout>
