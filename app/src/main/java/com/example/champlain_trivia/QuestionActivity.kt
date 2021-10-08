@@ -128,8 +128,6 @@ class QuestionActivity : AppCompatActivity() {
                 // set question prompt
                 promptText.text = questionSet[questionNumber - 1].prompt
 
-
-
                 // set image question answers
                 correctImage.setBackgroundResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.correct, "drawable", packageName))
                 incorrectImage1.setBackgroundResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[0], "drawable", packageName))
