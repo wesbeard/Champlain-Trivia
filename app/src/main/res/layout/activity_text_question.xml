@@ -6,59 +6,6 @@
     android:orientation="vertical"
     android:padding="25dp">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="#00FFFFFF"
-                android:padding="5dp"
-                android:scaleType="centerInside"
-                app:srcCompat="@android:drawable/ic_menu_report_image" />
-
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="#FFFFFF"
-                android:padding="5dp"
-                android:scaleType="centerInside"
-                app:srcCompat="@android:drawable/ic_menu_report_image" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="#00FFFFFF"
-                android:padding="5dp"
-                android:scaleType="centerInside"
-                app:srcCompat="@android:drawable/ic_menu_report_image" />
-
-            <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="#FFFFFF"
-                android:padding="5dp"
-                android:scaleType="centerInside"
-                app:srcCompat="@android:drawable/ic_menu_report_image" />
-        </TableRow>
-
-    </TableLayout>
 
     <TextView
         android:id="@+id/question_prompt"
@@ -77,7 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:foregroundGravity="bottom"
-        android:minHeight="200dp">
+        android:minHeight="200dp"
+        android:visibility="gone">
 
         <RadioButton
             android:id="@+id/answer1"
@@ -119,6 +67,62 @@
             android:foregroundGravity="bottom"
             android:text="@string/answer_placeholder" />
     </RadioGroup>
+
+    <TableLayout
+        android:id="@+id/imageTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="140dp"
+                android:layout_height="135dp"
+                android:layout_margin="12dp"
+                android:background="@android:drawable/ic_menu_report_image"
+                android:padding="5dp"
+                android:scaleType="centerInside" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="140dp"
+                android:layout_height="135dp"
+                android:layout_margin="12dp"
+                android:background="@android:drawable/ic_menu_report_image"
+                android:padding="5dp"
+                android:scaleType="centerInside" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="140dp"
+                android:layout_height="135dp"
+                android:layout_margin="12dp"
+                android:background="@android:drawable/ic_menu_report_image"
+                android:padding="5dp"
+                android:scaleType="centerInside" />
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="140dp"
+                android:layout_height="135dp"
+                android:layout_margin="12dp"
+                android:background="@android:drawable/ic_menu_report_image"
+                android:padding="5dp"
+                android:scaleType="centerInside" />
+        </TableRow>
+
+    </TableLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

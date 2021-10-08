@@ -3,6 +3,7 @@ package com.example.champlain_trivia
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -26,6 +27,7 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var incorrectText3: RadioButton
 
     // Image Question Views
+    private lateinit var imageTable: TableLayout
     private lateinit var correctImage: ImageButton
     private lateinit var incorrectImage1: ImageButton
     private lateinit var incorrectImage2: ImageButton
@@ -72,7 +74,10 @@ class QuestionActivity : AppCompatActivity() {
             getHint()
         }
 
+        // get text question radio group
         radioGroup = findViewById(R.id.radioGroup)
+        // get image question table
+        imageTable = findViewById(R.id.imageTable)
 
         questionSet = when (category) {
             "general" -> deserializedQuestions.categories.general.questions
@@ -93,11 +98,15 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     private fun setQuestion() {
+        // make sure old question views are removed
+        radioGroup.visibility = View.GONE
+        imageTable.visibility = View.GONE
+
         // check for question type and set answers up accordingly
         when (questionSet[questionNumber - 1].image) {
             false -> {
-                // set text layout
-                setContentView(R.layout.activity_text_question)
+                // set text elements to be visible
+                radioGroup.visibility = View.VISIBLE
 
                 // randomize answer locations
                 var answerList = listOf<RadioButton>(findViewById(R.id.answer1), findViewById(R.id.answer2), findViewById(R.id.answer3), findViewById(R.id.answer4))
@@ -117,8 +126,8 @@ class QuestionActivity : AppCompatActivity() {
                 incorrectText3.text = questionSet[questionNumber - 1].answers.incorrect[2]
             }
             true -> {
-                // set image layout
-                setContentView(R.layout.activity_image_question)
+                // set image elements to be visible
+                imageTable.visibility = View.VISIBLE
 
                 // randomize answer locations
                 var answerList = listOf<ImageButton>(findViewById(R.id.imageButton), findViewById(R.id.imageButton2), findViewById(R.id.imageButton3), findViewById(R.id.imageButton4))

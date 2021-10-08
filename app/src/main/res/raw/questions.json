@@ -180,7 +180,7 @@
             }
           },
           {
-            "image": false,
+            "image": true,
             "prompt": "Which of these is Burlington's City Hall?",
             "answers": {
               "correct": "burlington_city_hall",
