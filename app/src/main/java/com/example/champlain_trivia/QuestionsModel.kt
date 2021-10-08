@@ -26,7 +26,7 @@ data class Burlington(
 
 data class Question(
     @SerializedName("prompt") var prompt: String,
-    @SerializedName("image") var image: String,
+    @SerializedName("image") var image: Boolean,
     @SerializedName("answers") var answers: Answers
 )
 

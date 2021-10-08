@@ -153,6 +153,7 @@ class QuestionActivity : AppCompatActivity() {
 
     private fun gameOver() {
         setContentView(R.layout.activity_finish)
+        title  = "Game Over"
         scoreDisplay = findViewById(R.id.scoreDisplay)
         scoreDisplay.text = "$score/$TOTAL_QUESTIONS"
     }

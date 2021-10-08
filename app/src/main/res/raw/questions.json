@@ -3,42 +3,43 @@
       "buildings": {
         "questions": [
           {
-            "prompt": "Which residential hall is NOT located on the intersection of Willard & Maple?",
+            "image": true,
+            "prompt": "Which of these first year dorms is Hill Hall?",
             "answers": {
-              "correct": "Lyman",
+              "correct": "hill.png",
               "incorrect": [
-                "Bader",
-                "McDonald",
-                "Hill"
+                "lyman.png",
+                "mcdonald.png",
+                "rowell.png"
               ]
-            },
-            "image": "willard-maple.png"
+            }
           },
           {
-            "prompt": "Which of these is Valcour Hall?",
+            "image": false,
+            "prompt": "Which of these residence halls is NOT named after an island in Lake Champlain?",
             "answers": {
-              "correct": "valcour.png",
+              "correct": "McDonald",
               "incorrect": [
-                "juniper.png",
-                "butler.png",
-                "Adirondack.png"
+                "Butler",
+                "Juniper",
+                "Valcour"
               ]
-            },
-            "image": ""
+            }
           },
           {
-            "prompt": "Which building is Champlain College's admissions building?",
+            "image": false,
+            "prompt": "Which residence hall is situated on Finney Quad?",
             "answers": {
-              "correct": "Perry Hall",
+              "correct": "Lakeview",
               "incorrect": [
-                "Skiff Hall",
-                "West Hall",
-                "Foster Hall"
+                "Rowell",
+                "Hill",
+                "Schillhammer"
               ]
-            },
-            "image": "admissionsSign.png"
+            }
           },
           {
+            "image": false,
             "prompt": "What street is located just to the East of the library?",
             "answers": {
               "correct": "Summit Street",
@@ -47,10 +48,10 @@
                 "Main Street",
                 "Maple Street"
               ]
-            },
-            "image": "MIC.png"
+            }
           },
           {
+            "image": false,
             "prompt": "Which first year residence hall is the furthest from the main campus?",
             "answers": {
               "correct": "North House",
@@ -59,14 +60,14 @@
                 "Sanders Hall",
                 "194 St. Paul St."
               ]
-            },
-            "image": ""
+            }
           }
         ]
       },
       "general": {
         "questions": [
           {
+            "image": false,
             "prompt": "When was Champlain College founded?",
             "answers": {
               "correct": "1878",
@@ -75,10 +76,10 @@
                 "1882",
                 "1928"
               ]
-            },
-            "image": "champlain.png"
+            }
           },
           {
+            "image": false,
             "prompt": "What's the name of Champlain's beaver mascot?",
             "answers": {
               "correct": "Chauncey",
@@ -87,10 +88,10 @@
                 "William",
                 "Donald"
               ]
-            },
-            "image": "chauncey.png"
+            }
           },
           {
+            "image": false,
             "prompt": "What is Champlain's latin motto?",
             "answers": {
               "correct": "Audeamus",
@@ -99,10 +100,10 @@
                 "Veni Vidi Vici",
                 "Capre Deum"
               ]
-            },
-            "image": "seal.png"
+            }
           },
           {
+            "image": false,
             "prompt": "What is the name of the student life center?",
             "answers": {
               "correct": "IDX",
@@ -111,10 +112,10 @@
                 "EMC",
                 "MIC"
               ]
-            },
-            "image": "idx.png"
+            }
           },
           {
+            "image": true,
             "prompt": "Which one of these Champlain presidents is David Finney?",
             "answers": {
               "correct": "finney.png",
@@ -123,14 +124,14 @@
                 "laackman.png",
                 "thompson.png"
               ]
-            },
-            "image": "president.png"
+            }
           }
         ]
       },
       "burlington": {
         "questions": [
           {
+            "image": false,
             "prompt": "What is the name of this Burlington pedestrian street that has a market place containing businesses like Starbucks and Pascolo Ristorante?",
             "answers": {
               "correct": "Church Street",
@@ -139,10 +140,10 @@
                 "Battery Street",
                 "Champlain Street"
               ]
-            },
-            "image": "churchStreet.png"
+            }
           },
           {
+            "image": false,
             "prompt": "Which of these restaurants does not serve breakfast foods?",
             "answers": {
               "correct": "Sweetwaters",
@@ -152,22 +153,22 @@
                 "The Skinny Pancake"
               ]
 
-            },
-            "image": "pancake.png"
+            }
           },
           {
-            "prompt": "Which of these images are not located in Burlington?",
+            "image": true,
+            "prompt": "Which of these images is not located in the city of Burlington?",
             "answers": {
-              "correct": "shelburne rd image (in south burlington",
+              "correct": "target.png",
               "incorrect": [
-                "dogpark.png",
-                "uvm campus",
-                "burlington country club?"
+                "churchstreet.png",
+                "pier.png",
+                "countryclub.png"
               ]
-            },
-            "image": "NA.png"
+            }
           },
           {
+            "image": false,
             "prompt": "Which of these Burlington facts are false?",
             "answers": {
               "correct": "Largest city in Vermont by area",
@@ -176,10 +177,10 @@
                 "Is the smallest largest city in a US state",
                 "Has the smallest tallest building in a US state"
               ]
-            },
-            "image": "filingCabinet.png"
+            }
           },
           {
+            "image": false,
             "prompt": "Which of these is Burlington's City Hall?",
             "answers": {
               "correct": "BurlingtonCityHall.png",
@@ -188,8 +189,7 @@
                 "StoweCityHall.png",
                 "RutlandCityHall.png"
               ]
-            },
-            "image": "NA.png"
+            }
           }
         ]
       }
