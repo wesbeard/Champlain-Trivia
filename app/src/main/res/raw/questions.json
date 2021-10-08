@@ -6,11 +6,11 @@
             "image": true,
             "prompt": "Which of these first year dorms is Hill Hall?",
             "answers": {
-              "correct": "hill.png",
+              "correct": "hill",
               "incorrect": [
-                "lyman.png",
-                "mcdonald.png",
-                "rowell.png"
+                "lyman",
+                "mcdonald",
+                "rowell"
               ]
             }
           },
@@ -159,11 +159,11 @@
             "image": true,
             "prompt": "Which of these images is not located in the city of Burlington?",
             "answers": {
-              "correct": "target.png",
+              "correct": "target",
               "incorrect": [
-                "churchstreet.png",
-                "pier.png",
-                "countryclub.png"
+                "churchstreet",
+                "pier",
+                "countryclub"
               ]
             }
           },
@@ -183,11 +183,11 @@
             "image": false,
             "prompt": "Which of these is Burlington's City Hall?",
             "answers": {
-              "correct": "BurlingtonCityHall.png",
+              "correct": "burlington_city_hall",
               "incorrect": [
-                "MontpelierCityHall.png",
-                "StoweCityHall.png",
-                "RutlandCityHall.png"
+                "montpelier_city_hall",
+                "stowe_city_hall",
+                "rutland_city_hall"
               ]
             }
           }
