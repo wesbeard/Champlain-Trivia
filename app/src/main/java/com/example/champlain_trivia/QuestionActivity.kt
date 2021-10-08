@@ -25,6 +25,7 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var incorrectText1: RadioButton
     private lateinit var incorrectText2: RadioButton
     private lateinit var incorrectText3: RadioButton
+    private lateinit var textAnswerList: List<RadioButton>
 
     // Image Question Views
     private lateinit var imageTable: TableLayout
@@ -32,6 +33,9 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var incorrectImage1: ImageButton
     private lateinit var incorrectImage2: ImageButton
     private lateinit var incorrectImage3: ImageButton
+    private lateinit var imageAnswerList: List<ImageButton>
+    private var isImageSelected = false
+
 
     // Game Over Views
     private lateinit var scoreDisplay: TextView
@@ -53,7 +57,7 @@ class QuestionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_text_question)
+        setContentView(R.layout.activity_question)
         title = "Question $questionNumber"
 
         val intent = intent
@@ -87,8 +91,16 @@ class QuestionActivity : AppCompatActivity() {
         }
 
         questionSet = questionSet.shuffled()
+
+        // set answer lists
+        textAnswerList = listOf<RadioButton>(findViewById(R.id.answer1), findViewById(R.id.answer2), findViewById(R.id.answer3), findViewById(R.id.answer4))
+        imageAnswerList = listOf<ImageButton>(findViewById(R.id.imageButton), findViewById(R.id.imageButton2), findViewById(R.id.imageButton3), findViewById(R.id.imageButton4))
+
         // call function to generate initial question
         setQuestion()
+
+        // need to set up an onclick listener for the image buttons
+        // use champlain green for background color of images
     }
 
     companion object {
@@ -109,12 +121,11 @@ class QuestionActivity : AppCompatActivity() {
                 radioGroup.visibility = View.VISIBLE
 
                 // randomize answer locations
-                var answerList = listOf<RadioButton>(findViewById(R.id.answer1), findViewById(R.id.answer2), findViewById(R.id.answer3), findViewById(R.id.answer4))
-                answerList = answerList.shuffled()
-                correctTextAnswer = answerList[0]
-                incorrectText1 = answerList[1]
-                incorrectText2 = answerList[2]
-                incorrectText3 = answerList[3]
+                textAnswerList = textAnswerList.shuffled()
+                correctTextAnswer = textAnswerList[0]
+                incorrectText1 = textAnswerList[1]
+                incorrectText2 = textAnswerList[2]
+                incorrectText3 = textAnswerList[3]
 
                 // set question prompt
                 promptText.text = questionSet[questionNumber - 1].prompt
@@ -130,28 +141,32 @@ class QuestionActivity : AppCompatActivity() {
                 imageTable.visibility = View.VISIBLE
 
                 // randomize answer locations
-                var answerList = listOf<ImageButton>(findViewById(R.id.imageButton), findViewById(R.id.imageButton2), findViewById(R.id.imageButton3), findViewById(R.id.imageButton4))
-                answerList = answerList.shuffled()
-                correctImage = answerList[0]
-                incorrectImage1 = answerList[1]
-                incorrectImage2 = answerList[2]
-                incorrectImage3 = answerList[3]
+                imageAnswerList = imageAnswerList.shuffled()
+                correctImage = imageAnswerList[0]
+                incorrectImage1 = imageAnswerList[1]
+                incorrectImage2 = imageAnswerList[2]
+                incorrectImage3 = imageAnswerList[3]
 
                 // set question prompt
                 promptText.text = questionSet[questionNumber - 1].prompt
 
                 // set image question answers
-                correctImage.setBackgroundResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.correct, "drawable", packageName))
-                incorrectImage1.setBackgroundResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[0], "drawable", packageName))
-                incorrectImage2.setBackgroundResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[1], "drawable", packageName))
-                incorrectImage3.setBackgroundResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[2], "drawable", packageName))
+                correctImage.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.correct, "drawable", packageName))
+                incorrectImage1.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[0], "drawable", packageName))
+                incorrectImage2.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[1], "drawable", packageName))
+                incorrectImage3.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[2], "drawable", packageName))
+
+                // maybe set click listeners here
+                correctImage.setOnClickListener {
+                    selectImage()
+                }
             }
         }
     }
 
     private fun nextQuestion() {
         // make sure an answer is selected, if not then don't go to the next question
-        if (radioGroup.checkedRadioButtonId == -1)
+        if (radioGroup.checkedRadioButtonId == -1 || !isImageSelected) // need to add and or for if an image is selected
         {
             makeToast("Please select an answer to conitnue")
             return
@@ -181,6 +196,14 @@ class QuestionActivity : AppCompatActivity() {
                 incorrectText3.isVisible = true
             }
         }
+    }
+
+    private fun selectImage(selectedImage: ImageButton) {
+        // set background color to green for the passed image button
+        selectedImage.setBackgroundColor(resources.getColor(R.color.champlain_green)) // remember I'll have to disable this later
+        // set a bool to true when one has been selected
+        isImageSelected = true
+        // remember which one has been selected and maybe make a different function for correct image if thats easier
     }
 
     private fun getHint() {
