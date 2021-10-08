@@ -2,6 +2,7 @@ package com.example.champlain_trivia
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 
 class MainActivity : AppCompatActivity() {
@@ -9,6 +10,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var generalButton: ImageButton
     private lateinit var buildingsButton: ImageButton
     private lateinit var burlingtonButton: ImageButton
+    private lateinit var highscoresButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -33,6 +35,12 @@ class MainActivity : AppCompatActivity() {
         burlingtonButton.setOnClickListener {
             val intent = QuestionActivity.newIntent(this@MainActivity)
             intent.putExtra("category", "burlington")
+            startActivity(intent)
+        }
+
+        highscoresButton = findViewById(R.id.highscores)
+        highscoresButton.setOnClickListener {
+            val intent = HighscoresActivity.newIntent(this@MainActivity)
             startActivity(intent)
         }
     }

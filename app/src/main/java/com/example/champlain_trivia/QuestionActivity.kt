@@ -51,6 +51,12 @@ class QuestionActivity : AppCompatActivity() {
     private var hintUsed = false
     private var scoreSaved = false
 
+    companion object {
+        fun newIntent(packageContext: Context): Intent {
+            return Intent(packageContext, QuestionActivity::class.java)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_text_question)
@@ -89,12 +95,6 @@ class QuestionActivity : AppCompatActivity() {
         questionSet = questionSet.shuffled()
         // call function to generate initial question
         setQuestion()
-    }
-
-    companion object {
-        fun newIntent(packageContext: Context): Intent {
-            return Intent(packageContext, QuestionActivity::class.java)
-        }
     }
 
     private fun setQuestion() {
