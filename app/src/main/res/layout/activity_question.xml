@@ -85,7 +85,7 @@
                 android:layout_width="165dp"
                 android:layout_height="160dp"
                 android:layout_margin="8dp"
-                android:background="@color/champlain_green"
+                android:background="@color/transparent"
                 android:padding="7dp"
                 android:scaleType="fitXY"
                 android:src="@color/black" />
@@ -95,7 +95,7 @@
                 android:layout_width="165dp"
                 android:layout_height="160dp"
                 android:layout_margin="8dp"
-                android:background="@color/champlain_green"
+                android:background="@color/transparent"
                 android:padding="7dp"
                 android:scaleType="fitXY"
                 android:src="@color/black" />
@@ -111,7 +111,7 @@
                 android:layout_width="165dp"
                 android:layout_height="160dp"
                 android:layout_margin="8dp"
-                android:background="@color/champlain_green"
+                android:background="@color/transparent"
                 android:padding="7dp"
                 android:scaleType="fitXY"
                 android:src="@color/black" />
@@ -121,7 +121,7 @@
                 android:layout_width="165dp"
                 android:layout_height="160dp"
                 android:layout_margin="8dp"
-                android:background="@color/champlain_green"
+                android:background="@color/transparent"
                 android:padding="7dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/burlington_city_hall" />

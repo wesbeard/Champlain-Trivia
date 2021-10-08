@@ -161,9 +161,9 @@
             "answers": {
               "correct": "target",
               "incorrect": [
-                "churchstreet",
-                "pier",
-                "countryclub"
+                "church_street",
+                "perkins_pier",
+                "skate_park"
               ]
             }
           },

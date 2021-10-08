@@ -5,4 +5,5 @@
     <color name="disabled">#807e7e</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#0000ffff</color>
 </resources>

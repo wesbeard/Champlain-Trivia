@@ -35,7 +35,7 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var incorrectImage3: ImageButton
     private lateinit var imageAnswerList: List<ImageButton>
     private var isImageSelected = false
-
+    private var isImageAnswerCorrect = false
 
     // Game Over Views
     private lateinit var scoreDisplay: TextView
@@ -46,6 +46,7 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var saveScoreButton: Button
 
     // Game Logic Vars
+    private var isImageQuestion = false
     private lateinit var selectedAnswer: RadioButton
     private lateinit var category: String
     private var questionNumber = 1
@@ -114,72 +115,95 @@ class QuestionActivity : AppCompatActivity() {
         radioGroup.visibility = View.GONE
         imageTable.visibility = View.GONE
 
+        isImageQuestion = questionSet[questionNumber - 1].image
+
         // check for question type and set answers up accordingly
-        when (questionSet[questionNumber - 1].image) {
-            false -> {
-                // set text elements to be visible
-                radioGroup.visibility = View.VISIBLE
+        if (isImageQuestion) {
+            // set image elements to be visible
+            imageTable.visibility = View.VISIBLE
 
-                // randomize answer locations
-                textAnswerList = textAnswerList.shuffled()
-                correctTextAnswer = textAnswerList[0]
-                incorrectText1 = textAnswerList[1]
-                incorrectText2 = textAnswerList[2]
-                incorrectText3 = textAnswerList[3]
+            // randomize answer locations
+            imageAnswerList = imageAnswerList.shuffled()
+            correctImage = imageAnswerList[0]
+            incorrectImage1 = imageAnswerList[1]
+            incorrectImage2 = imageAnswerList[2]
+            incorrectImage3 = imageAnswerList[3]
 
-                // set question prompt
-                promptText.text = questionSet[questionNumber - 1].prompt
+            // set question prompt
+            promptText.text = questionSet[questionNumber - 1].prompt
 
-                // set text question answers
-                correctTextAnswer.text = questionSet[questionNumber - 1].answers.correct
-                incorrectText1.text = questionSet[questionNumber - 1].answers.incorrect[0]
-                incorrectText2.text = questionSet[questionNumber - 1].answers.incorrect[1]
-                incorrectText3.text = questionSet[questionNumber - 1].answers.incorrect[2]
+            // set image question answers
+            correctImage.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.correct, "drawable", packageName))
+            incorrectImage1.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[0], "drawable", packageName))
+            incorrectImage2.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[1], "drawable", packageName))
+            incorrectImage3.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[2], "drawable", packageName))
+
+            // maybe set click listeners here
+            correctImage.setOnClickListener {
+                selectImage(correctImage, true)
             }
-            true -> {
-                // set image elements to be visible
-                imageTable.visibility = View.VISIBLE
-
-                // randomize answer locations
-                imageAnswerList = imageAnswerList.shuffled()
-                correctImage = imageAnswerList[0]
-                incorrectImage1 = imageAnswerList[1]
-                incorrectImage2 = imageAnswerList[2]
-                incorrectImage3 = imageAnswerList[3]
-
-                // set question prompt
-                promptText.text = questionSet[questionNumber - 1].prompt
-
-                // set image question answers
-                correctImage.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.correct, "drawable", packageName))
-                incorrectImage1.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[0], "drawable", packageName))
-                incorrectImage2.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[1], "drawable", packageName))
-                incorrectImage3.setImageResource(resources.getIdentifier(questionSet[questionNumber - 1].answers.incorrect[2], "drawable", packageName))
-
-                // maybe set click listeners here
-                correctImage.setOnClickListener {
-                    selectImage()
-                }
+            incorrectImage1.setOnClickListener {
+                selectImage(incorrectImage1, false)
             }
+            incorrectImage2.setOnClickListener {
+                selectImage(incorrectImage2, false)
+            }
+            incorrectImage3.setOnClickListener {
+                selectImage(incorrectImage3, false)
+            }
+        }
+        else {
+            // set text elements to be visible
+            radioGroup.visibility = View.VISIBLE
+
+            // randomize answer locations
+            textAnswerList = textAnswerList.shuffled()
+            correctTextAnswer = textAnswerList[0]
+            incorrectText1 = textAnswerList[1]
+            incorrectText2 = textAnswerList[2]
+            incorrectText3 = textAnswerList[3]
+
+            // set question prompt
+            promptText.text = questionSet[questionNumber - 1].prompt
+
+            // set text question answers
+            correctTextAnswer.text = questionSet[questionNumber - 1].answers.correct
+            incorrectText1.text = questionSet[questionNumber - 1].answers.incorrect[0]
+            incorrectText2.text = questionSet[questionNumber - 1].answers.incorrect[1]
+            incorrectText3.text = questionSet[questionNumber - 1].answers.incorrect[2]
         }
     }
 
     private fun nextQuestion() {
         // make sure an answer is selected, if not then don't go to the next question
-        if (radioGroup.checkedRadioButtonId == -1 || !isImageSelected) // need to add and or for if an image is selected
+        if (radioGroup.checkedRadioButtonId == -1 && !isImageSelected) // need to add and or for if an image is selected
         {
-            makeToast("Please select an answer to conitnue")
+            makeToast("Please select an answer to continue")
             return
         }
 
-        // if currently selected answer is the correct answer then increment score
-        selectedAnswer = findViewById(radioGroup.checkedRadioButtonId)
-        if (selectedAnswer == correctTextAnswer) {
-            score++
-        }
+        if (isImageQuestion) {
+            if (isImageAnswerCorrect) {
+                score++
+            }
 
-        // clear checked buttons for next question
-        radioGroup.clearCheck()
+            // remove background color of image
+            correctImage.setBackgroundColor(resources.getColor(R.color.transparent))
+            incorrectImage1.setBackgroundColor(resources.getColor(R.color.transparent))
+            incorrectImage2.setBackgroundColor(resources.getColor(R.color.transparent))
+            incorrectImage3.setBackgroundColor(resources.getColor(R.color.transparent))
+            // reset is image vars to false
+            isImageAnswerCorrect = false
+            isImageSelected = false
+        }
+        else {
+            selectedAnswer = findViewById(radioGroup.checkedRadioButtonId)
+            if (selectedAnswer == correctTextAnswer) {
+                score++
+            }
+            // clear checked buttons for next question
+            radioGroup.clearCheck()
+        }
 
         if (questionNumber >= TOTAL_QUESTIONS) {
             gameOver()
@@ -191,29 +215,49 @@ class QuestionActivity : AppCompatActivity() {
 
             // show all answers if hint has been used
             if (hintUsed) {
-                incorrectText1.isVisible = true
-                incorrectText2.isVisible = true
-                incorrectText3.isVisible = true
+                if (isImageQuestion) {
+                    incorrectImage1.isVisible = true
+                    incorrectImage2.isVisible = true
+                    incorrectImage3.isVisible = true
+                } else {
+                    incorrectText1.isVisible = true
+                    incorrectText2.isVisible = true
+                    incorrectText3.isVisible = true
+                }
             }
         }
     }
 
-    private fun selectImage(selectedImage: ImageButton) {
-        // set background color to green for the passed image button
-        selectedImage.setBackgroundColor(resources.getColor(R.color.champlain_green)) // remember I'll have to disable this later
-        // set a bool to true when one has been selected
+    private fun selectImage(selectedImage: ImageButton, correct: Boolean) {
+        // remove any prior selected images
+        correctImage.setBackgroundColor(resources.getColor(R.color.transparent))
+        incorrectImage1.setBackgroundColor(resources.getColor(R.color.transparent))
+        incorrectImage2.setBackgroundColor(resources.getColor(R.color.transparent))
+        incorrectImage3.setBackgroundColor(resources.getColor(R.color.transparent))
+        // then set selected image to have green background
+        selectedImage.setBackgroundColor(resources.getColor(R.color.champlain_green))
         isImageSelected = true
-        // remember which one has been selected and maybe make a different function for correct image if thats easier
+        // mark if answer is correct or not
+        isImageAnswerCorrect = correct
     }
 
     private fun getHint() {
         // You get one hint per round so we just need to reset this whenever we go back to home
         if (!hintUsed) {
-            when (Random.nextInt(0, 3)) {
-                0 -> incorrectText1.isVisible = false
-                1 -> incorrectText2.isVisible = false
-                2 -> incorrectText3.isVisible = false
+            if (isImageQuestion) {
+                when (Random.nextInt(0, 3)) {
+                    0 -> incorrectText1.isVisible = false
+                    1 -> incorrectText2.isVisible = false
+                    2 -> incorrectText3.isVisible = false
+                }
+            } else {
+                when (Random.nextInt(0, 3)) {
+                    0 -> incorrectImage1.isVisible = false
+                    1 -> incorrectImage2.isVisible = false
+                    2 -> incorrectImage3.isVisible = false
+                }
             }
+
             hintUsed = true
             hintButton.setBackgroundColor(resources.getColor(R.color.disabled))
             hintButton.isClickable = false
@@ -252,7 +296,7 @@ class QuestionActivity : AppCompatActivity() {
         replayButton = findViewById(R.id.replay)
         replayButton.setOnClickListener {
             val intent = newIntent(this@QuestionActivity)
-            intent.putExtra("category", "general")
+            intent.putExtra("category", category)
             startActivity(intent)
             finish()
         }
