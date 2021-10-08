@@ -55,6 +55,12 @@ class QuestionActivity : AppCompatActivity() {
     private var hintUsed = false
     private var scoreSaved = false
 
+    companion object {
+        fun newIntent(packageContext: Context): Intent {
+            return Intent(packageContext, QuestionActivity::class.java)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
@@ -101,12 +107,6 @@ class QuestionActivity : AppCompatActivity() {
 
         // need to set up an onclick listener for the image buttons
         // use champlain green for background color of images
-    }
-
-    companion object {
-        fun newIntent(packageContext: Context): Intent {
-            return Intent(packageContext, QuestionActivity::class.java)
-        }
     }
 
     private fun setQuestion() {
