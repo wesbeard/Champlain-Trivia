@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/joshb/AndroidStudioProjects/Champlain-Trivia/app/src/main/res/layout/activity_highscores.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/joshb/AndroidStudioProjects/Champlain-Trivia/app/src/main/res/layout/activity_image_question.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/joshb/AndroidStudioProjects/Champlain-Trivia/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/joshb/AndroidStudioProjects/Champlain-Trivia/app/src/main/res/layout/activity_text_question.xml" value="0.24895833333333334" />
       </map>
     </option>

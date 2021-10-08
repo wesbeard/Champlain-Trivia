@@ -36,6 +36,7 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var questionSet: List<Question>
     private var score = 0
     private var hintUsed = false
+    private lateinit var selectionMessage: Toast
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,9 +49,10 @@ class QuestionActivity : AppCompatActivity() {
         val rawQuestions = stream.bufferedReader().readText()
         val gson = Gson()
         val deserializedQuestions = gson.fromJson(rawQuestions, Root::class.java)
+        selectionMessage = Toast.makeText(applicationContext, "Please select an answer", Toast.LENGTH_SHORT)
 
         promptText = findViewById(R.id.question_prompt)
-        promptImage = findViewById(R.id.question_image)
+        //promptImage = findViewById(R.id.question_image)
 
         submitButton = findViewById(R.id.submit)
         submitButton.setOnClickListener {
@@ -82,29 +84,53 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     private fun setQuestion() {
-        // randomize answer locations
-        var answerList = listOf<RadioButton>(findViewById(R.id.answer1), findViewById(R.id.answer2), findViewById(R.id.answer3), findViewById(R.id.answer4))
-        answerList = answerList.shuffled()
-        correctAnswer = answerList[0]
-        incorrect1 = answerList[1]
-        incorrect2 = answerList[2]
-        incorrect3 = answerList[3]
+        // check for question type and set answers up accordingly
+        when (questionSet[questionNumber - 1].image) {
+            false -> {
+                // randomize answer locations
+                var answerList = listOf<RadioButton>(findViewById(R.id.answer1), findViewById(R.id.answer2), findViewById(R.id.answer3), findViewById(R.id.answer4))
+                answerList = answerList.shuffled()
+                correctAnswer = answerList[0]
+                incorrect1 = answerList[1]
+                incorrect2 = answerList[2]
+                incorrect3 = answerList[3]
 
-        // set question prompt
-        promptText.text = questionSet[questionNumber - 1].prompt
+                // set question prompt
+                promptText.text = questionSet[questionNumber - 1].prompt
 
-        // set question answers
-        correctAnswer.text = questionSet[questionNumber - 1].answers.correct
-        incorrect1.text = questionSet[questionNumber - 1].answers.incorrect[0]
-        incorrect2.text = questionSet[questionNumber - 1].answers.incorrect[1]
-        incorrect3.text = questionSet[questionNumber - 1].answers.incorrect[2]
+                // set text question answers
+                correctAnswer.text = questionSet[questionNumber - 1].answers.correct
+                incorrect1.text = questionSet[questionNumber - 1].answers.incorrect[0]
+                incorrect2.text = questionSet[questionNumber - 1].answers.incorrect[1]
+                incorrect3.text = questionSet[questionNumber - 1].answers.incorrect[2]
+            }
+            true -> {
+                // need to make it so it changes layout to image layout
+                // maybe like this
+                setContentView(R.layout.activity_image_question)
+
+                // randomize answer locations
+                var answerList = listOf<RadioButton>(findViewById(R.id.answer1), findViewById(R.id.answer2), findViewById(R.id.answer3), findViewById(R.id.answer4))
+                answerList = answerList.shuffled()
+                correctAnswer = answerList[0]
+                incorrect1 = answerList[1]
+                incorrect2 = answerList[2]
+                incorrect3 = answerList[3]
+
+                // set image question answers
+                correctAnswer.setBackgroundResource()
+                incorrect1.setBackgroundResource()
+                incorrect2.setBackgroundResource()
+                incorrect3.setBackgroundResource()
+            }
+        }
     }
 
     private fun nextQuestion() {
         // make sure an answer is selected, if not then don't go to the next question
         if (radioGroup.checkedRadioButtonId == -1)
         {
-            Toast.makeText(applicationContext, "Please select an answer", Toast.LENGTH_SHORT).show()
+            selectionMessage.show()
             return
         }
 
@@ -123,9 +149,9 @@ class QuestionActivity : AppCompatActivity() {
             gameOver()
         }
         else {
-
             title = "Question $questionNumber"
             setQuestion()
+            selectionMessage.cancel()
 
             // show all answers if hint has been used
             if (hintUsed) {
