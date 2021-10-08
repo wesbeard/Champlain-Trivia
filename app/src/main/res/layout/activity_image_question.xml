@@ -6,19 +6,14 @@
     android:orientation="vertical"
     android:padding="25dp">
 
-    <ImageView
-        android:id="@+id/question_image"
-        android:layout_width="wrap_content"
-        android:layout_height="188dp"
-        app:srcCompat="@drawable/motto" />
-
     <TextView
         android:id="@+id/question_prompt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:gravity="center_horizontal"
+        android:gravity="center_horizontal|center_vertical"
+        android:minHeight="100dp"
         android:text="Question Text"
         android:textSize="20sp" />
 
@@ -38,7 +33,7 @@
                 android:background="#00FFFFFF"
                 android:padding="5dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/shield" />
+                app:srcCompat="@android:drawable/ic_menu_report_image" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
@@ -47,7 +42,7 @@
                 android:background="#FFFFFF"
                 android:padding="5dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/shield" />
+                app:srcCompat="@android:drawable/ic_menu_report_image" />
         </TableRow>
 
         <TableRow
@@ -62,7 +57,7 @@
                 android:background="#00FFFFFF"
                 android:padding="5dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/shield" />
+                app:srcCompat="@android:drawable/ic_menu_report_image" />
 
             <ImageButton
                 android:id="@+id/imageButton4"
@@ -71,7 +66,7 @@
                 android:background="#FFFFFF"
                 android:padding="5dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/shield" />
+                app:srcCompat="@android:drawable/ic_menu_report_image" />
         </TableRow>
 
     </TableLayout>
