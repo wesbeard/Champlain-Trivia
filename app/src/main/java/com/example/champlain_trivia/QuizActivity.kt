@@ -2,6 +2,7 @@ package com.example.champlain_trivia
 
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -176,6 +177,9 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun nextQuestion() {
+        var correctSound = MediaPlayer.create(this, R.raw.correct)
+        val incorrectSound = MediaPlayer.create(this, R.raw.incorrect)
+
         // make sure an answer is selected, if not then don't go to the next question
         if (radioGroup.checkedRadioButtonId == -1 && !isImageSelected) // need to add and or for if an image is selected
         {
@@ -185,7 +189,11 @@ class QuizActivity : AppCompatActivity() {
 
         if (isImageQuestion) {
             if (isImageAnswerCorrect) {
+                correctSound.start()
                 score++
+            }
+            else {
+                incorrectSound.start()
             }
 
             // remove background color of image
@@ -200,7 +208,11 @@ class QuizActivity : AppCompatActivity() {
         else {
             selectedAnswer = findViewById(radioGroup.checkedRadioButtonId)
             if (selectedAnswer == correctTextAnswer) {
+                correctSound.start()
                 score++
+            }
+            else {
+                incorrectSound.start()
             }
             // clear checked buttons for next question
             radioGroup.clearCheck()
