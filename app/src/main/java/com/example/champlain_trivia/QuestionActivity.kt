@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import androidx.core.view.isVisible
 import java.io.OutputStreamWriter
+import java.util.*
 import kotlin.random.Random
 
 
@@ -309,21 +310,56 @@ class QuestionActivity : AppCompatActivity() {
         }
         // If name text is valid then write it to a file, if not show error message
         else if(nameText != null && nameText != "") {
-            // Scores are saved as "category-highscores", ex: general-highscores
             val filename = "$category-highscores"
-            val fileOutputStream = openFileOutput(filename, MODE_PRIVATE)
-            val textOutputStream = OutputStreamWriter(fileOutputStream)
 
-            val toWrite = "$nameText $score"
-            textOutputStream.write(toWrite)
-            textOutputStream.close()
-            fileOutputStream.close()
+            // Get existing scores from internal storage depending on category
+            var existingScores = readScores(filename).toMutableMap()
+
+            // Add current score to existing scores
+            existingScores[score] = nameText
+
+            // Write new list of scores to file
+            writeScores(filename, existingScores)
+
             scoreSaved = true
             makeToast("Score saved!")
         }
         else {
             makeToast("Please enter a name to save your score")
         }
+    }
+
+    private fun readScores(filename: String): Map<Int, String> {
+        var scores = mutableMapOf<Int, String>()
+        // Return early if the file doesn't exist yet
+        if (!getFileStreamPath(filename).exists()) {
+            return scores
+        }
+
+        // Read the formatted lines and put into map of score to name
+        val lines = openFileInput(filename).bufferedReader().readLines()
+        for (line in lines) {
+            val score = line.split("/")[0].toInt()
+            val name = line.split("/")[1]
+            scores[score] = name
+        }
+        return scores
+    }
+
+    private fun writeScores(filename: String, scores: Map<Int, String>) {
+        val fileOutputStream = openFileOutput(filename, MODE_PRIVATE)
+        val textOutputStream = OutputStreamWriter(fileOutputStream)
+
+        val sortedScores = scores.toSortedMap()
+        var toWrite = ""
+
+        for (score in sortedScores) {
+            toWrite += "${score.key}/${score.value}\n"
+        }
+
+        textOutputStream.write(toWrite)
+        textOutputStream.close()
+        fileOutputStream.close()
     }
 
     private fun makeToast(text: String) {

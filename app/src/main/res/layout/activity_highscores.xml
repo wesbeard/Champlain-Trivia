@@ -10,8 +10,8 @@
         android:id="@+id/general_highscores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
         <TextView
@@ -26,74 +26,10 @@
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/general_scores"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1)" />
-
-            <TextView
-                android:id="@+id/general1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="N/A" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2)" />
-
-            <TextView
-                android:id="@+id/general2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="N/A" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3)" />
-
-            <TextView
-                android:id="@+id/general3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="N/A" />
-
-        </LinearLayout>
+            android:layout_height="190dp" />
 
     </LinearLayout>
 
@@ -101,8 +37,8 @@
         android:id="@+id/buildings_highscores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
         <TextView
@@ -117,74 +53,10 @@
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/buildings_scores"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1)" />
-
-            <TextView
-                android:id="@+id/buildings1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="N/A" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2)" />
-
-            <TextView
-                android:id="@+id/buildings2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="N/A" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3)" />
-
-            <TextView
-                android:id="@+id/buildings3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="N/A" />
-
-        </LinearLayout>
+            android:layout_height="190dp" />
 
     </LinearLayout>
 
@@ -192,8 +64,8 @@
         android:id="@+id/burlington_highscores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
         <TextView
@@ -208,74 +80,10 @@
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/burlington_scores"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1)" />
-
-            <TextView
-                android:id="@+id/burlington1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="N/A" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2)" />
-
-            <TextView
-                android:id="@+id/burlington2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="N/A" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3)" />
-
-            <TextView
-                android:id="@+id/burlington3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="N/A" />
-
-        </LinearLayout>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
