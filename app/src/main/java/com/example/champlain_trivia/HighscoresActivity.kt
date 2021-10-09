@@ -32,6 +32,7 @@ class HighscoresActivity : AppCompatActivity() {
         val buildingsScores = readScores("buildings-highscores").reversed()
         val burlingtonScores = readScores("burlington-highscores").reversed()
 
+        // ListView help from https://stackoverflow.com/a/20750202
         val generalAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, android.R.id.text1, generalScores)
         generalScoresList.adapter = generalAdapter
 
