@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChamplainTrivia">
         <activity android:name=".HighscoresActivity"></activity>
-        <activity android:name=".QuestionActivity" />
+        <activity android:name=".QuizActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

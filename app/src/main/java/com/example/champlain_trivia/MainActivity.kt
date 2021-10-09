@@ -19,21 +19,21 @@ class MainActivity : AppCompatActivity() {
 
         generalButton = findViewById(R.id.general_category)
         generalButton.setOnClickListener {
-            val intent = QuestionActivity.newIntent(this@MainActivity)
+            val intent = QuizActivity.newIntent(this@MainActivity)
             intent.putExtra("category", "general")
             startActivity(intent)
         }
 
         buildingsButton = findViewById(R.id.buildings_category)
         buildingsButton.setOnClickListener {
-            val intent = QuestionActivity.newIntent(this@MainActivity)
+            val intent = QuizActivity.newIntent(this@MainActivity)
             intent.putExtra("category", "buildings")
             startActivity(intent)
         }
 
         burlingtonButton = findViewById(R.id.burlington_category)
         burlingtonButton.setOnClickListener {
-            val intent = QuestionActivity.newIntent(this@MainActivity)
+            val intent = QuizActivity.newIntent(this@MainActivity)
             intent.putExtra("category", "burlington")
             startActivity(intent)
         }

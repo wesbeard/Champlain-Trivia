@@ -13,7 +13,7 @@ import java.util.*
 import kotlin.random.Random
 
 
-class QuestionActivity : AppCompatActivity() {
+class QuizActivity : AppCompatActivity() {
 
     // question views
     private lateinit var promptText: TextView
@@ -59,7 +59,7 @@ class QuestionActivity : AppCompatActivity() {
 
     companion object {
         fun newIntent(packageContext: Context): Intent {
-            return Intent(packageContext, QuestionActivity::class.java)
+            return Intent(packageContext, QuizActivity::class.java)
         }
     }
 
@@ -297,7 +297,7 @@ class QuestionActivity : AppCompatActivity() {
 
         replayButton = findViewById(R.id.replay)
         replayButton.setOnClickListener {
-            val intent = newIntent(this@QuestionActivity)
+            val intent = newIntent(this@QuizActivity)
             intent.putExtra("category", category)
             startActivity(intent)
             finish()
