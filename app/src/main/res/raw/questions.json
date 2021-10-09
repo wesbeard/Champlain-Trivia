@@ -98,7 +98,7 @@
               "incorrect": [
                 "Sic Semper Tyrannis",
                 "Veni Vidi Vici",
-                "Capre Deum"
+                "Carpe Deum"
               ]
             }
           },
@@ -118,11 +118,11 @@
             "image": true,
             "prompt": "Which one of these Champlain presidents is David Finney?",
             "answers": {
-              "correct": "finney.png",
+              "correct": "finney",
               "incorrect": [
-                "akande.png",
-                "laackman.png",
-                "thompson.png"
+                "akande",
+                "laackman",
+                "thompson"
               ]
             }
           }

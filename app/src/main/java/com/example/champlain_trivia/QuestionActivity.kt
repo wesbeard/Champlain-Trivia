@@ -272,12 +272,13 @@ class QuestionActivity : AppCompatActivity() {
         scoreDisplay.text = "$score/$TOTAL_QUESTIONS"
 
         scoreMessage = findViewById(R.id.scoreMessage)
-        scoreMessage.text = when((score/TOTAL_QUESTIONS)*100) {
-            100 -> "Perfection!"
-            in 75..99 -> "Well Done!"
-            in 50..74 -> "Not Too Shabby..."
-            in 25..49 -> "You Can Do Better!"
-            in 0..24 -> "That Was Terrible!"
+        // calculate score percentage
+        scoreMessage.text = when((score.toFloat()/TOTAL_QUESTIONS.toFloat()) * 100.0) {
+            100.0 -> "Perfection!"
+            in 75.0..99.0 -> "Well Done!"
+            in 50.0..74.0 -> "Not Too Shabby..."
+            in 25.0..49.0 -> "You Can Do Better!"
+            in 0.0..24.0 -> "That Was Terrible!"
             else -> "Game Over!"
         }
 
