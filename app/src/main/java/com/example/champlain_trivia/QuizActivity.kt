@@ -257,7 +257,7 @@ class QuizActivity : AppCompatActivity() {
     private fun getHint() {
         // You get one hint per round so we just need to reset this whenever we go back to home
         if (!hintUsed) {
-            if (isImageQuestion) {
+            if (!isImageQuestion) {
                 when (Random.nextInt(0, 3)) {
                     0 -> incorrectText1.isVisible = false
                     1 -> incorrectText2.isVisible = false
